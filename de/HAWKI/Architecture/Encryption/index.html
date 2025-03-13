@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-HAWKI/Architecture/Encryption" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.6.3">
+<title data-rh="true">Encryption | HAWK Research</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://hawk-digital-environments.github.io/HAWKI2-Documentation/de/img/HAWKI_Icon.jpg"><meta data-rh="true" name="twitter:image" content="https://hawk-digital-environments.github.io/HAWKI2-Documentation/de/img/HAWKI_Icon.jpg"><meta data-rh="true" property="og:url" content="https://hawk-digital-environments.github.io/HAWKI2-Documentation/de/HAWKI/Architecture/Encryption"><meta data-rh="true" property="og:locale" content="de"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="de"><meta data-rh="true" name="docsearch:language" content="de"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Encryption | HAWK Research"><meta data-rh="true" name="description" content="Introduction"><meta data-rh="true" property="og:description" content="Introduction"><link data-rh="true" rel="icon" href="/HAWKI2-Documentation/de/img/favicon-32x32.png"><link data-rh="true" rel="canonical" href="https://hawk-digital-environments.github.io/HAWKI2-Documentation/de/HAWKI/Architecture/Encryption"><link data-rh="true" rel="alternate" href="https://hawk-digital-environments.github.io/HAWKI2-Documentation/HAWKI/Architecture/Encryption" hreflang="en"><link data-rh="true" rel="alternate" href="https://hawk-digital-environments.github.io/HAWKI2-Documentation/de/HAWKI/Architecture/Encryption" hreflang="de"><link data-rh="true" rel="alternate" href="https://hawk-digital-environments.github.io/HAWKI2-Documentation/HAWKI/Architecture/Encryption" hreflang="x-default"><link rel="stylesheet" href="/HAWKI2-Documentation/de/assets/css/styles.a2635f23.css">
+<script src="/HAWKI2-Documentation/de/assets/js/runtime~main.24920055.js" defer="defer"></script>
+<script src="/HAWKI2-Documentation/de/assets/js/main.d52753f9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Zum Hauptinhalt springen"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Zum Hauptinhalt springen</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/HAWKI2-Documentation/de/"><div class="navbar__logo"><img src="/HAWKI2-Documentation/de/img/hawk-logo.svg" alt="HAWK Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/HAWKI2-Documentation/de/img/hawk-logo-dark.svg" alt="HAWK Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate"></b></a></div><div class="navbar__items navbar__items--right"><a href="https://www.hawki.info/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-info-link" aria-label="GitHub repository"></a><a href="https://github.com/HAWK-Digital-Environments/HAWKI" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Umschalten zwischen dunkler und heller Ansicht (momentan heller Modus)" aria-label="Umschalten zwischen dunkler und heller Ansicht (momentan heller Modus)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Zurück nach oben scrollen" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/HAWKI2-Documentation/de/">Prologue</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/HAWKI2-Documentation/de/HAWKI/Getting Started">Getting Started</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/HAWKI2-Documentation/de/category/architecture">Architecture</a><button aria-label="Collapse sidebar category &#x27;Architecture&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Core Architecture">Core Architecture</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Routes">Routes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/MVC">Models Views Controllers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Encryption">Encryption</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Model Connection">Model Connection</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Broadcasting">Broadcasting</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Mail Service">Mail Service</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Authentication">Authentication</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/dot Env">dot Env</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Usage Record">Usage Record</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/HAWKI2-Documentation/de/category/deployment">Deployment</a><button aria-label="Expand sidebar category &#x27;Deployment&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/HAWKI2-Documentation/de/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/HAWKI2-Documentation/de/category/architecture"><span itemprop="name">Architecture</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Encryption</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Auf dieser Seite</button></div><div class="theme-doc-markdown markdown"><header><h1>Encryption</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direkter Link zur Introduction" title="Direkter Link zur Introduction">​</a></h2>
+<p>Encryption can be one of the more complicated parts of HAWKI2.
+Basically, most of the encryption in HAWKI is done on the client side. This ensures that a minimum of data leaves the browser unencrypted. In addition to the SSL encryption after deployment, this also guarantees the integrity of the data all over the platform.</p>
+<p>To review the encryption process, we start with the registration process and the creation of the required keys during the process when the user first enters the platform. As mentioned in the introduction, HAWKI&#x27;s main authentication mechanism relies on external authentication services (LDAP, Shibboleth, OpenID). Although this facilitates the integration of HAWKI into an organisation&#x27;s infrastructure, such as universities and companies, it also makes it more difficult to monitor changes in user information. In this respect, HAWKI&#x27;s encryption is based on a unique passkey that gives each user a unique signature to encrypt and store their private data.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="registration">Registration<a href="#registration" class="hash-link" aria-label="Direkter Link zur Registration" title="Direkter Link zur Registration">​</a></h2>
+<p>The first time users log in to HAWKI, they must go through the registration process, during which HAWKI2 establishes a secure encryption infrastructure that both protects individual user data and enables secure communication between users.
+The registration process involves the creation of several cryptographic keys:</p>
+<p><strong>1. Passkey Creation</strong></p>
+<ul>
+<li>Users create a master passkey during registration</li>
+<li>This passkey serves as the root of the encryption system</li>
+<li>A backup code is generated in the format &quot;xxxx-xxxx-xxxx-xxxx&quot;</li>
+<li>The passkey is encrypted using a key derived from this backup code and stored server-side</li>
+<li>The backup mechanism allows recovery if the user forgets their passkey</li>
+</ul>
+<p><strong>2. Key Pair Generation</strong></p>
+<ul>
+<li>An RSA-OAEP key pair (2048-bit) is generated for asymmetric encryption</li>
+<li>The public key is stored in the user&#x27;s database record for others to encrypt messages to them</li>
+<li>The private key is stored in the user&#x27;s encrypted keychain</li>
+<li>This key pair enables secure key exchange between users</li>
+</ul>
+<p><strong>3. AI Conversation Key Creation</strong></p>
+<ul>
+<li>An AES-256-GCM symmetric key is generated for AI conversations</li>
+<li>This key is stored in the user&#x27;s keychain and used to encrypt all AI conversation data (single chats)</li>
+</ul>
+<p><strong>4. Keychain Initialization</strong></p>
+<ul>
+<li>User&#x27;s keychain stores all cryptographic material (private key, symmetric keys)</li>
+<li>The keychain itself is encrypted using a key derived from the user&#x27;s passkey</li>
+<li>Both client-side (IndexedDB) and server-side backups of the encrypted keychain are maintained</li>
+</ul>
+<blockquote>
+<p><em>After each login, the keychain on the indexDB will be compared to the one on the Server and will be updated if neccessary.</em></p>
+</blockquote>
+<p><img decoding="async" loading="lazy" alt="image" src="/HAWKI2-Documentation/de/assets/images/register-c86add2522fee9df0654e3f353addb1c.png" width="1021" height="978" class="img_ev3q"></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="message-encryption">Message Encryption<a href="#message-encryption" class="hash-link" aria-label="Direkter Link zur Message Encryption" title="Direkter Link zur Message Encryption">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="ai-conversation-messages-aiconvmsg">AI Conversation Messages (AiConvMsg)<a href="#ai-conversation-messages-aiconvmsg" class="hash-link" aria-label="Direkter Link zur AI Conversation Messages (AiConvMsg)" title="Direkter Link zur AI Conversation Messages (AiConvMsg)">​</a></h3>
+<p>AI conversation messages are encrypted using the user&#x27;s AI conversation key.
+Since the conversation (single chat) data only belongs the user, and since the conversation is mostly done using streaming, only one symmetric key (<code>AiConvKey</code>) is used for encryption both client and AI messages, which reduces the processing load drastically.
+On the other hand since the none of the keys is allowed to be sent to server, the AI messages must also be encrypted on the client side and be sent back to the server.
+To solve this problem, two copies of the user message are sent to the server via different routes: An encrypted copy that is stored in the database as <code>AiConvMsg</code>, and an unencrypted copy that is sent to the AI model.</p>
+<p><strong>1. User Messages to AI</strong></p>
+<ul>
+<li>Messages are encrypted client-side using the user&#x27;s aiConvKey (AES-256-GCM)</li>
+<li>The encrypted message, along with its IV and authentication tag, is sent to the server</li>
+<li>The server never sees unencrypted message content</li>
+</ul>
+<p><strong>2. AI Responses</strong></p>
+<ul>
+<li>AI responses are streamed to the client in chunks for real-time display</li>
+<li>As chunks arrive, they&#x27;re displayed to the user immediately</li>
+<li>Once the complete response is received or the stream is aborted, it&#x27;s encrypted with the aiConvKey</li>
+<li>The encrypted response is sent to the server for storage</li>
+</ul>
+<p><strong>3. Storage and Retrieval</strong></p>
+<ul>
+<li>All messages are stored in the database in encrypted form</li>
+<li>When a conversation is loaded, messages are fetched and decrypted client-side</li>
+<li>The system prompt for AI conversations is also encrypted with the same key</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="room-messages">Room Messages<a href="#room-messages" class="hash-link" aria-label="Direkter Link zur Room Messages" title="Direkter Link zur Room Messages">​</a></h3>
+<p>Messages in group chats (rooms) use a room-specific encryption system:</p>
+<p><strong>1. Room Key</strong></p>
+<ul>
+<li>Each room has a unique symmetric AES-256-GCM key</li>
+<li>This key is shared among all room members through secure key exchange</li>
+<li>The room key is stored in each member&#x27;s encrypted keychain</li>
+</ul>
+<p><strong>2. User Message Encryption</strong></p>
+<ul>
+<li>User messages are encrypted with the room key before being sent</li>
+<li>The encrypted message includes an IV and authentication tag</li>
+<li>Only members with access to the room key can decrypt these messages</li>
+</ul>
+<p><strong>3. AI Message Encryption</strong></p>
+<ul>
+<li>AI messages in group chats use a derived key from the room key</li>
+<li>The derivation uses PBKDF2 with a server-provided salt and the room slug as context</li>
+<li>This special AI encryption key allows the server to directly store AI messages in the database</li>
+<li>When decrypting messages the AI encryption key will be derived again from the original room key.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="key-exchange">Key Exchange<a href="#key-exchange" class="hash-link" aria-label="Direkter Link zur Key Exchange" title="Direkter Link zur Key Exchange">​</a></h2>
+<p>When a user creates a room or invites others to join, a secure key exchange occurs:</p>
+<p><strong>1. For Users with Public Keys</strong></p>
+<ul>
+<li>The room key is encrypted using the recipient&#x27;s public key (RSA-OAEP)</li>
+<li>This asymmetric encryption ensures only the recipient can decrypt the room key</li>
+<li>The encrypted key is stored in the database as part of the invitation</li>
+<li>When the recipient accepts the invitation, they decrypt the room key using their private key</li>
+</ul>
+<p><strong>2. For External Users without Public Keys</strong></p>
+<ul>
+<li>A temporary hash is generated for secure key sharing</li>
+<li>The room key is encrypted using a key derived from this temporary hash</li>
+<li>The encrypted key and temporary hash are stored separately</li>
+<li>The hash is sent to the user via email</li>
+<li>When the user registers and accepts the invitation, they use the hash to decrypt the room key</li>
+</ul>
+<p><strong>3. Adding the Room Key to Keychain</strong></p>
+<ul>
+<li>After successful decryption, the room key is added to the user&#x27;s keychain</li>
+<li>The keychain is re-encrypted and backed up to the server</li>
+<li>This process ensures the room key remains secure and persistent</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="image" src="/HAWKI2-Documentation/de/assets/images/Invitation-b74fa15a859ea297946bd7edcde1703a.png" width="1363" height="733" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="private-data-encryption">Private Data Encryption<a href="#private-data-encryption" class="hash-link" aria-label="Direkter Link zur Private Data Encryption" title="Direkter Link zur Private Data Encryption">​</a></h2>
+<p>HAWKI2 protects various types of private user data through encryption:</p>
+<p><strong>1. User Keychain</strong></p>
+<ul>
+<li>Stores all cryptographic keys (private key, room keys, AI key)</li>
+<li>Encrypted using a key derived from the user&#x27;s passkey</li>
+<li>The derivation process uses PBKDF2 with 100,000 iterations and SHA-256</li>
+<li>Server-provided salts enhance security and prevent rainbow table attacks</li>
+</ul>
+<p><strong>2. Room Metadata</strong></p>
+<ul>
+<li>Room descriptions and system prompts are encrypted with the room key</li>
+<li>This ensures that even room configuration data remains private</li>
+</ul>
+<p><strong>3. Passkey Backup</strong></p>
+<ul>
+<li>The user&#x27;s passkey is encrypted using a key derived from their backup code</li>
+<li>This allows recovery without compromising the security of the passkey</li>
+</ul>
+<p><strong>Security Considerations</strong></p>
+<p><strong>1. Zero-Knowledge Architecture</strong></p>
+<ul>
+<li>The server never has access to unencrypted keys or message content</li>
+<li>All encryption and decryption happens client-side in the browser</li>
+</ul>
+<p><strong>2. Key Management</strong></p>
+<ul>
+<li>Private keys never leave the client device in unencrypted form</li>
+<li>All key transfers utilize asymmetric encryption or secure key derivation</li>
+</ul>
+<p><strong>3. Cryptographic Standards</strong></p>
+<ul>
+<li>Uses industry-standard algorithms: AES-256-GCM, RSA-OAEP, PBKDF2</li>
+<li>Proper implementation of IVs, authentication tags, and salts</li>
+</ul>
+<p><strong>4. Sync and Recovery</strong></p>
+<ul>
+<li>Encrypted keychain backup enables cross-device synchronization</li>
+<li>Backup codes provide a secure recovery mechanism</li>
+</ul>
+<p><strong>5. Isolation</strong></p>
+<ul>
+<li>Each conversation and room has its own encryption keys</li>
+<li>Compromise of one key doesn&#x27;t affect the security of other communications</li>
+</ul>
+<p>This comprehensive encryption system ensures that all user data and communications in HAWKI2 remain
+private and secure, with the server acting only as a secure relay for encrypted content.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/hawk/your-project/edit/main/docs/HAWKI/3-Architecture/4-Encryption.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Diese Seite bearbeiten</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Dokumentation Seiten"><a class="pagination-nav__link pagination-nav__link--prev" href="/HAWKI2-Documentation/de/HAWKI/Architecture/MVC"><div class="pagination-nav__sublabel">Zurück</div><div class="pagination-nav__label">Models Views Controllers</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/HAWKI2-Documentation/de/HAWKI/Architecture/Model Connection"><div class="pagination-nav__sublabel">Weiter</div><div class="pagination-nav__label">Model Connection</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#registration" class="table-of-contents__link toc-highlight">Registration</a></li><li><a href="#message-encryption" class="table-of-contents__link toc-highlight">Message Encryption</a><ul><li><a href="#ai-conversation-messages-aiconvmsg" class="table-of-contents__link toc-highlight">AI Conversation Messages (AiConvMsg)</a></li><li><a href="#room-messages" class="table-of-contents__link toc-highlight">Room Messages</a></li></ul></li><li><a href="#key-exchange" class="table-of-contents__link toc-highlight">Key Exchange</a></li><li><a href="#private-data-encryption" class="table-of-contents__link toc-highlight">Private Data Encryption</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Made with Docusaurus © 2025</div></div></div></footer></div>
+</body>
+</html>
